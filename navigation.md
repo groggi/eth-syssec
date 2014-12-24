@@ -4,5 +4,5 @@
 [gimmick: math]()
 
 [Home](index.md)
-[Part 1: Side Channel Attacks, Tamper Resilience, Smartcards, API Attacks](part1.md)
+[Part 1](part1.md)
 [Todos](todo.md)

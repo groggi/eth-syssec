@@ -26,12 +26,12 @@
 - Dynamic power consumption
 	- Power to charge transistor gate
 	- State changes
-	- Discharge (e.g. from 1 to 0) is free => if state changes $$f$$ times only $$\frac{f}{2}$$ times a charge happens which adds up to the dynamic power consumption.
+	- Discharge (e.g. from 1 to 0) is free => if state changes \\(f\\) times only \\(\frac{f}{2}\\) times a charge happens which adds up to the dynamic power consumption.
 - Static power consumption
 	- Power consumed while no states changes happen (i.e. no gates need charging)
 - CMOS gates
-	- $$0 \to 0, 1 \to 1$$ nearly no power needed
-	- $$0 \to 1, 1 \to 0$$ high power consumption
+	- \\(0 \to 0, 1 \to 1\\) nearly no power needed
+	- \\(0 \to 1, 1 \to 0\\) high power consumption
 - While measuring use average to reduce noise
 
 #### Practice
@@ -45,8 +45,8 @@
 - Attack on top-down square and multiply exponentiation
 	- done during signing and decryption
 - Observation
-	- Squaring followed by squaring $$\Rightarrow$$ bit of the exponent is zero
-	- Squaring followed by multiplication $$\Rightarrow$$ bit of the exponent is one
+	- Squaring followed by squaring \\(\Rightarrow\\) bit of the exponent is zero
+	- Squaring followed by multiplication \\(\Rightarrow\\) bit of the exponent is one
 - On slides: Square has higher power consumption than multiplication
 - In Exercise: ... TODO ...
 

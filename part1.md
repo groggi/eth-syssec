@@ -1,9 +1,7 @@
 # Part 1
 
-## Side Channel Attacks
-
-### Power Analysis Attacks (Power Cryptanalysis Attacks)
-
+## Side Channel Attack
+### Power Analysis Attack (Power Cryptanalysis Attack)
 - Attack allows to retrieve a secret
 - Trace power consumption of device
 - Trace: Measurement of consumption during a single execution
@@ -65,6 +63,30 @@
 	- Costly and hard to design
 - TODO: Shamir's countermeasure
 
+### Side Channel Attack: Cache-timing Attack on AES
+- Differential attack
+- ... TODO ... read paper
+- Can recover the secret key by measuring the time
+- Attacker sends specific plaintext (known-plaintext attack) to server and receives the ciphertext. Measures the time the server needs.
+- Attack possible due to AES Design: Very hard to write constant time high performance AES software for general-purpose computers.
+- Vulnerability exists because implementations *use lookup tables* for internal operations, such as S-Boxes.
+	- Time to access a specific table depends on the address of the position
+	- Data will be in cache or in memory, different access times
+		- L1 and L2 caches, RAM, Disk
+	- Attack can learn about the address being accessed by looking at the time needed for access
+- In AES table lookup, i.e. memory addresses, are derived from the secret key and plaintext
+- ... TODO ... after reading paper slides 41ff
+- Lessons learned
+	- General: write constant time security software
+	- Cache-timing attacks countermeasures:
+		- avoid memory access
+		- alternative lookup tables
+		- data-oblivious memory access patterns
+		- application specific masking
+		- static or disabled caches
+		- dynamic table storage
+		- hiding the timing
+	- Most countermeasures are expensive in regard to money (e.g. redesign cipher, redesign hardware) or in regard to performance
 
 ## Tamper Resilience
 

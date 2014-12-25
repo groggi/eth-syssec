@@ -171,8 +171,3 @@
 	- Only enable what is required, disable access/functionality of everything else
 - Physical security of device not important for this attack
 - API analysis seems to be similar to analyzing authentication/key exchange protocols
-
-## Smartcards
-
-
-## API Attacks

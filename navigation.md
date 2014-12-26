@@ -9,5 +9,6 @@
 [Part 2](part2.md)
 [Part 3](part3.md)
 [Part 4](part4.md)
+[Part 6](part6.md)
 [TPM](tpm.md)
 [Todos](todo.md)

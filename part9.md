@@ -1,0 +1,50 @@
+# Part 9: Android Security
+
+- Security Principles
+	- Minimize TCB size
+		- Most code runs above the kernel and are unprivileged processes
+		- Only very small number of daemons run with root privileges
+		- User applications can't obtain root privileges
+	- Application Sandbox
+		- All user applications run inside a sandbox
+		- Kernel isolates sandboxes from each other
+		- Each application gets its unique user ID and unique system path
+	- Isolation provided by Kernel: Ensures one application can't exhaust memory, cpu or any other resource used by another application
+- Errors by application developers still possible
+- Android nowadays with SELinux in enforcing mode
+	- Policy by manufacturer
+	- Added Android specific features:
+		- Support for automatically adding labels on file creation
+		- Interprocess communication mediation
+	- Too many user applications to do application specific policies (doesn't scale)
+	- Policy written for specific privileged applications
+	- Other applications handled by a sandbox
+- Software Installation, crucial part of Android's security model
+	- All applications must be signed
+	- No centrally distributed signing certificates, use of self-generated and self-signed certificates
+	- Trust on first use
+		- updates must use same signing key
+		- first version not checked
+	- Applications identified by package name and fingerprint of signing key
+	- First install might be a problem and phishing attacks to trick user to uninstall/reinstall
+	- If signing key is lost, no updates possible anymore
+	- On first install
+		- User has to accept permissions requested by application
+		- Permissions can only be changed by an update, must be approved by user
+- Application Permissions
+	- Helps enforcing principle of least privilege
+	- Users must understand permissions application requests
+- UID Sharing
+	- Applications signed by same key can request to have the same user ID
+	- Shared UID puts applications into same sandbox
+	- Permissions for an UID is the union of all permission of each application with the same UID
+- Does complete mediation
+	- Android implements a Reference Monitor
+	- Informally designed
+- Tamperproof
+	- Application installed by user are confined and can't gain additional privileges
+	- User may be unable to disable SELinux features on his own phone
+	- Disabling or modifying SELinux functionality would require rewriting a system partition that is read-only. May require special software / devices to be written.
+- Verifiable
+	- TCB and policies relatively small
+	- *not clear if verification was done* (not clearly stated in slides, seems like the answer is "no")

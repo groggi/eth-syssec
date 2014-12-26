@@ -8,4 +8,5 @@ System Security, ETH Zurich, AS14
 - [Part 4: Trustworthy Computing and Attestation](part4.md)
 - Part 5: Software-Based Attestation (TODO)
 - [Part 6: OS Security Introduction](part6.md)
+- [Part 7: Linux and Windows OS Security](part7.md)
 - [TPM](tpm.md)

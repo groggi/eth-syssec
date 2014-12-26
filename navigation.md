@@ -10,5 +10,6 @@
 [Part 3](part3.md)
 [Part 4](part4.md)
 [Part 6](part6.md)
+[Part 7](part7.md)
 [TPM](tpm.md)
 [Todos](todo.md)

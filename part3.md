@@ -176,3 +176,43 @@
 	- widely adapted by operating systems and hardware
 
 ## Return-Oriented Programming (ROP)
+- One example of ROP is «return-to-libc»
+	- redirect execution to instructions inside shared libraries
+	- libc is linked to nearly every application on Unix/Linux
+	- Contains system calls and basic facilities (e.g. `open()`, `malloc()`, `system()`, etc.)
+- Use only small pieces of larger instructions, all of them end with a `RET`
+- Multiple such small sequences chained together are called *Gadget*
+- Each Gadget does one specific task (e.g. load something, store something, branch, etc.)
+- Adversary combines Gadgets
+
+### Countermeasures
+- Compiler Extension
+	- Compiler adds security measures
+	- adds performance overhead
+	- Stack Canaries
+		- Add so called *canary* values around control flow information and check it's still valid when control flow related information is used
+		- Example: `PUSH` canary value at the beginning of a function, check value before `RET`
+		- If adversary overwrites a control flow related information, it will also overwrite the canary
+		- Works only if canary is not known to attacker, otherwise he can do an overwrite without changing the canary
+- Programming Languages: Use languages that incorporate security relevant checks (e.g. boundary checks)
+- Address Space Layout Randomization (ASLR)
+	- randomize base address of code segments (stack, heap, dynamic libraries)
+	- enabled in most operating systems
+	- prevents attacker to do Return-Oriented Programming as the attacker does not know the memory address of the instructions
+	- Code Injection harder as attacker must find out where the injected code is locates (its base address)
+	- Typical problems:
+		- Entropy is often too low, can be brute-forced
+		- Disclosure attacks possible
+		- not all code parts can be randomized, attacker can use the base addresses of the fixed parts
+- Software Diversity
+	- Create from the same source code multiple semantically equal executables
+	- Exploits should work only on one of the executables
+	- All shared libraries must also be diversified, otherwise attacker can use them to exploit the application
+	- No secure and practical scheme available today for diversification to counter control flow attacks
+- Binary Instrumentation
+	- "Instrumentation" binds additional code to a program. Usually used for security and profiling purposes
+	- Probe-Based Instrumentation: At program start code is rewritten/modified
+	- JIT based instrumentation: Instrumentation code is added dynamically
+		- Use shadow stack that holds expected return addresses
+		- Check if return address is the same as on the shadow stack if a `RET` should be executed
+	- usually introduces a performance penalty

@@ -9,4 +9,5 @@ System Security, ETH Zurich, AS14
 - Part 5: Software-Based Attestation (TODO)
 - [Part 6: OS Security Introduction](part6.md)
 - [Part 7: Linux and Windows OS Security](part7.md)
+- [Part 8: Securing Commercial OSs & SELinux](part8.md)
 - [TPM](tpm.md)

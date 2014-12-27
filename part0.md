@@ -1,5 +1,14 @@
 # Part 0
 
+## Basics
+- Stream Cipher: processes a message bit (byte) by bit (byte)
+- Block Cipher: encrypt/decrypt blocks of a message
+- Message Authentication Code (MAC)
+	- Input: message, secret key
+	- Output: authenticator of fixed length (the MAC)
+	- Message Authentication: \\(\operatorname{MAC} = C(k, m)\\)
+	- Message Authentication & Confidentiality: \\(\operatorname{Enc}(k_2, (m \, || \, C(k_1, m)))\\)
+
 ## Block Ciphers
 - Encrypt/Decrypt blocks of \\(N\\) bits
 - Each block interpreted as a symbol of an alphabet of size \\(2^N\\)

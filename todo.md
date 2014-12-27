@@ -1,6 +1,5 @@
 # TODOs
 - Introduction lecture (Stream cipher, Block cipher, etc. pp.)
-- Lecture 9 skipped for now
 - Read DPA Whitepaper (Lecture 2, Slide 3)
 - Go trough exercises and extract further information
 - Part 1: Shamir's countermeasure (Lecture 2, Slide 21ff)
